@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+// Define the player's and dragon's stats.
+int player_health = 100;
+int player_strength = 50;
+int dragon_health = 150;
+int dragon_strength = 75;
+
+int main()
+{
+    while (player_health > 0 && dragon_health > 0)
+    {
+        // Display the player's stats.
+        printf("Your health: %d\n", player_health);
+        printf("Your strength: %d\n", player_strength);
+        printf("Dragon's health: %d\n", dragon_health);
+
+        // Display the player's options.
+        printf("What do you want to do?\n");
+        printf("1. Fight the dragon\n");
+        printf("2. Use a magic spell\n");
+        printf("3. Try to negotiate with the dragon\n");
+
+        // Read the player's choice.
+        int choice;
+        scanf("%d", &choice);
+
+        // Handle the player's choice.
+        switch (choice)
+        {
+            case 1:
+                // The player fights the dragon.
+                // Reduce the dragon's health by the player's strength.
+                dragon_health -= player_strength;
+                break;
+
+            case 2:
+                // The player uses a magic spell.
+                // Reduce the dragon's health by twice the player's strength.
+                dragon_health -= 2 * player_strength;
+                break;
+
+            case 3:
+                // The player tries to negotiate with the dragon.
+                // The dragon gets angry and attacks the player.
+                // Reduce the player's health by the dragon's strength.
+                player_health -= dragon_strength;
+                break;
+        }
+
+        // Check if the player won or lost the game.
+        if (dragon_health <= 0)
+        {
+            printf("You defeated the dragon! Congratulations!\n");
+        }
+       
